@@ -1,0 +1,31 @@
+*********************************************************************
+function greet() {
+    console.log(`Hello, my name is ${this.name}`);
+}
+
+const person = { name: "Alice" };
+
+greet.call(person); // Output: "Hello, my name is Alice"
+
+*********************************************************************
+
+function greet(greeting) {
+    console.log(`${greeting}, my name is ${this.name}`);
+}
+
+const person = { name: "Bob" };
+
+greet.apply(person, ["Hi"]); // Output: "Hi, my name is Bob"
+
+*********************************************************************
+
+function greet() {
+    console.log(`Hello, my name is ${this.name}`);
+}
+
+const person = { name: "Eve" };
+const greetPerson = greet.bind(person);
+
+greetPerson(); // Output: "Hello, my name is Eve"
+
+*********************************************************************
